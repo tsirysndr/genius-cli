@@ -290,7 +290,7 @@ version = "0.1.0"
 dependencies = [
  "clap",
  "colored_json",
- "genius-rs",
+ "genius-rust",
  "owo-colors",
  "rand",
  "serde",
@@ -300,9 +300,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "genius-rs"
-version = "0.5.0"
-source = "git+https://github.com/tsirysndr/genius-rust?rev=3d9108c#3d9108cd29670bae8c0c14ba1b83d9829c7c0808"
+name = "genius-rust"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "33344f0556622ac4578010d02844e3e9f764cbc92fd7b212a733c653dbb04d46"
 dependencies = [
  "base64",
  "chrono",

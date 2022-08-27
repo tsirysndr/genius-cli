@@ -3,7 +3,7 @@ use std::env;
 use clap::{Arg, Command};
 use colored_json::ToColoredJson;
 use genius_cli::colorizer::print_colorized;
-use genius_rs::Genius;
+use genius_rust::Genius;
 
 fn cli() -> Command<'static> {
     const VERSION: &str = env!("CARGO_PKG_VERSION");

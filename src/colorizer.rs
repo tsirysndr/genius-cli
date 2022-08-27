@@ -1,4 +1,4 @@
-use genius_rs::song::Song;
+use genius_rust::song::Song;
 use owo_colors::{
     colors::{css::Orange, Black, BrightGreen, BrightYellow, Cyan, Magenta, Yellow},
     OwoColorize,
