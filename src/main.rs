@@ -1,4 +1,4 @@
-use std::env;
+use std::{env, process::exit};
 
 use clap::{Arg, Command};
 use colored_json::ToColoredJson;
@@ -54,7 +54,8 @@ fn cli() -> Command<'static> {
 #[tokio::main]
 async fn main() {
     if env::var("GENIUS_TOKEN").unwrap().is_empty() {
-        panic!("Please set the GENIUS_TOKEN environment variable");
+        println!("Please set the GENIUS_TOKEN environment variable");
+        exit(1);
     }
 
     let genius = Genius::new(env::var("GENIUS_TOKEN").unwrap());
