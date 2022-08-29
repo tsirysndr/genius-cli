@@ -13,6 +13,9 @@
   <a href="LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg" />
   </a>
+   <a href="https://github.com/tsirysndr/genius-cli/actions/workflows/release.yml" target="_blank">
+    <img alt="License: MIT" src="https://github.com/tsirysndr/genius-cli/actions/workflows/release.yml/badge.svg" />
+  </a>
 </p>
 
 Genius CLI helps you search for lyrics or song informations from [Genius](https://genius.com), right from your terminal.
