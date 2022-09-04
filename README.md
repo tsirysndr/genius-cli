@@ -16,6 +16,9 @@
    <a href="https://github.com/tsirysndr/genius-cli/actions/workflows/release.yml" target="_blank">
     <img alt="License: MIT" src="https://github.com/tsirysndr/genius-cli/actions/workflows/release.yml/badge.svg" />
   </a>
+  <a href="https://github.com/tsirysndr/genius-cli/actions/workflows/rust-clippy.yml" target="_blank">
+    <img alt="release" src="https://github.com/tsirysndr/genius-cli/actions/workflows/rust-clippy.yml/badge.svg?branch=master" />
+  </a>
 </p>
 
 Genius CLI helps you search for lyrics or song informations from [Genius](https://genius.com), right from your terminal.
