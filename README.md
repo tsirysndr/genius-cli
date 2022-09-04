@@ -21,7 +21,11 @@
   </a>
 </p>
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S1ETN14)
+<p>
+<a href="https://www.buymeacoffee.com/tsiry">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" height="40" />
+</a>
+</p>
 
 Genius CLI helps you search for lyrics or song informations from [Genius](https://genius.com), right from your terminal.
 
