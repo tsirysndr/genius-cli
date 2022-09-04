@@ -21,6 +21,8 @@
   </a>
 </p>
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S1ETN14)
+
 Genius CLI helps you search for lyrics or song informations from [Genius](https://genius.com), right from your terminal.
 
 ## Installation
