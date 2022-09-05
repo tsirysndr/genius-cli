@@ -35,6 +35,11 @@ Genius CLI helps you search for lyrics or song informations from [Genius](https:
 cargo install genius-cli
 ```
 
+### macOS/Linux
+```bash
+brew install tsirysndr/tap/genius
+```
+
 <img width="800" src="./preview.svg">
 
 ## Usage
