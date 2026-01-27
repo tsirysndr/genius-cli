@@ -1,12 +1,12 @@
 [package]
 name = "genius-cli"
-version = "0.1.2"
+version = "0.2.0"
 edition = "2021"
 description = "A command-line interface for Genius.com"
 readme = "README.md"
 repository = "https://github.com/tsirysndr/genius-cli"
 license = "MIT"
-authors = ["Tsiry Sandratraina <tsiry.sndr@aol.com>"]
+authors = ["Tsiry Sandratraina <tsiry.sndr@aol.com>", "James Choi <choijjames@gmail.com>"]
 categories = ["command-line-utilities"]
 keywords = ["tokio", "lyrics", "cli", "genius"]
 
