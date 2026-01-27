@@ -31,9 +31,11 @@ jobs:
         if: matrix.target == 'x86_64-unknown-linux-musl'
         uses: actions-rs/toolchain@v1
         with:
+          profile: minimal
           toolchain: stable
           target: x86_64-unknown-linux-gnu
           override: true
+          components: rustfmt, clippy
       - name: Running cargo build
         if: matrix.target == 'x86_64-unknown-linux-musl'
         uses: actions-rs/cargo@v1

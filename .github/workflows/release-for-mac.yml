@@ -11,16 +11,20 @@ jobs:
       - name: Installing Rust toolchain for x86_64
         uses: actions-rs/toolchain@v1
         with:
+          profile: minimal
           toolchain: stable
           target: x86_64-apple-darwin
           override: true
+          components: rustfmt, clippy
 
       - name: Installing Rust toolchain for aarch64
         uses: actions-rs/toolchain@v1
         with:
+          profile: minimal
           toolchain: stable
           target: aarch64-apple-darwin
           override: true
+          components: rustfmt, clippy
       - name: Checking out sources
         uses: actions/checkout@v1
       - name: Running cargo build for x86_64
