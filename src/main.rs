@@ -113,12 +113,12 @@ fn cli() -> Command<'static> {
             r#"
     ______           _               ________    ____
    / ____/__  ____  (_)_  _______   / ____/ /   /  _/
-  / / __/ _ \/ __ \/ / / / / ___/  / /   / /    / /  
- / /_/ /  __/ / / / / /_/ (__  )  / /___/ /____/ /   
- \____/\___/_/ /_/_/\__,_/____/   \____/_____/___/   
+  / / __/ _ \/ __ \/ / / / / ___/  / /   / /    / /
+ / /_/ /  __/ / / / / /_/ (__  )  / /___/ /____/ /
+ \____/\___/_/ /_/_/\__,_/____/   \____/_____/___/
 
  Genius CLI helps you search for lyrics or song informations from Genius.com.
-                                                     
+
 "#,
         )
         .subcommand_required(true)
@@ -152,7 +152,7 @@ fn cli() -> Command<'static> {
 
 #[tokio::main]
 async fn main() {
-    if env::var("GENIUS_TOKEN").unwrap().is_empty() {
+    if env::var("GENIUS_TOKEN").is_err() {
         println!("Please set the GENIUS_TOKEN environment variable");
         exit(1);
     }
@@ -178,11 +178,10 @@ async fn main() {
                 .unwrap()
                 .parse::<u32>()
                 .unwrap();
-            
-            // Fetch lyrics from the new API
+
             let url = format!("https://genius-mcp.xvzf.workers.dev/api/song/{}/lyrics", id);
             let client = reqwest::Client::new();
-            
+
             match client.get(&url).send().await {
                 Ok(response) => {
                     match response.json::<LyricsApiResponse>().await {
@@ -193,7 +192,7 @@ async fn main() {
                                 &lyrics_data.title,
                                 &lyrics_data.url
                             );
-                            
+
                             // Print the lyrics
                             println!("{}", lyrics_data.lyrics);
                         }

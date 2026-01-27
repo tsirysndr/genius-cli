@@ -4,37 +4,60 @@ on:
 
 jobs:
   release:
-    name: release x86_64-apple-darwin
+    name: release macOS binaries
     runs-on: macos-latest
 
     steps:
-      - name: Installing Rust toolchain
+      - name: Installing Rust toolchain for x86_64
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
           target: x86_64-apple-darwin
           override: true
+
+      - name: Installing Rust toolchain for aarch64
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: aarch64-apple-darwin
+          override: true
       - name: Checking out sources
         uses: actions/checkout@v1
-      - name: Running cargo build
+      - name: Running cargo build for x86_64
         uses: actions-rs/cargo@v1
         with:
           command: build
           toolchain: stable
-          args: --locked --release --target x86_64-apple-darwin"
+          args: --locked --release --target x86_64-apple-darwin
+
+      - name: Running cargo build for aarch64
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          toolchain: stable
+          args: --locked --release --target aarch64-apple-darwin
       - name: Set env
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-      - name: Packaging final binary
+      - name: Packaging final binary for x86_64
         shell: bash
         run: |
           cd target/x86_64-apple-darwin/release
           tar czvf genius_${{ env.RELEASE_VERSION }}_x86_64-apple-darwin.tar.gz genius
           shasum -a 512 genius_${{ env.RELEASE_VERSION }}_x86_64-apple-darwin.tar.gz > genius_${{ env.RELEASE_VERSION }}_x86_64-apple-darwin.tar.gz.sha512
+
+      - name: Packaging final binary for aarch64
+        shell: bash
+        run: |
+          cd target/aarch64-apple-darwin/release
+          tar czvf genius_${{ env.RELEASE_VERSION }}_aarch64-apple-darwin.tar.gz genius
+          shasum -a 512 genius_${{ env.RELEASE_VERSION }}_aarch64-apple-darwin.tar.gz > genius_${{ env.RELEASE_VERSION }}_aarch64-apple-darwin.tar.gz.sha512
       - name: Releasing assets
         uses: softprops/action-gh-release@v1
         with:
           files: |
             target/x86_64-apple-darwin/release/genius_${{ env.RELEASE_VERSION }}_x86_64-apple-darwin.tar.gz
             target/x86_64-apple-darwin/release/genius_${{ env.RELEASE_VERSION }}_x86_64-apple-darwin.tar.gz.sha512
+            target/aarch64-apple-darwin/release/genius_${{ env.RELEASE_VERSION }}_aarch64-apple-darwin.tar.gz
+            target/aarch64-apple-darwin/release/genius_${{ env.RELEASE_VERSION }}_aarch64-apple-darwin.tar.gz.sha512
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

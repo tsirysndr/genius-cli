@@ -6,7 +6,7 @@ description = "A command-line interface for Genius.com"
 readme = "README.md"
 repository = "https://github.com/tsirysndr/genius-cli"
 license = "MIT"
-authors = ["Tsiry Sandratraina <tsiry.sndr@aol.com>", "James Choi <choijjames@gmail.com>"]
+authors = ["Tsiry Sandratraina <tsiry.sndr@rocksky.app>", "James Choi <choijjames@gmail.com>"]
 categories = ["command-line-utilities"]
 keywords = ["tokio", "lyrics", "cli", "genius"]
 
