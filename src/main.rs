@@ -10,6 +10,9 @@ use owo_colors::{
 use rand::Rng;
 use serde::Deserialize;
 
+// API response structure from https://genius-mcp.xvzf.workers.dev/api/song/{id}/lyrics
+// All fields are part of the API response and need to be present for deserialization
+// Some fields aren't directly used in the code but are required for proper JSON parsing
 #[allow(dead_code)]
 #[derive(Debug, Deserialize)]
 struct LyricsApiResponse {
@@ -17,7 +20,7 @@ struct LyricsApiResponse {
     id: u32,
     title: String,
     #[serde(default)]
-    artist_names: String,
+    artist_names: String,  // Alternative to primary_artist.name
     url: String,
     lyrics: String,
     primary_artist: ApiPrimaryArtist,
@@ -34,7 +37,7 @@ struct ApiPrimaryArtist {
 
 fn print_song_info(artist_name: &str, title: &str, url: &str) {
     let mut rng = rand::thread_rng();
-    match rng.gen_range(0..5) {
+    match rng.gen_range(0..6) {
         0 => {
             println!(
                 "\n{}{}{}",
