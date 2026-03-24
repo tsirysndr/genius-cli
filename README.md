@@ -17,6 +17,8 @@
 
 Genius CLI helps you search for lyrics or song informations from [Genius](https://genius.com), right from your terminal.
 
+<a href="https://pocketenv.io/new?repo=tangled:tsiry-sandratraina.com/genius-cli" target="_blank"><img src="https://pocketenv.io/open-in-pocketenv.svg" alt="Open in Pocketenv" /></a>
+
 <img width="800" src="./preview.svg">
 
 ## Installation
